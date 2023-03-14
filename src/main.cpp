@@ -14,6 +14,9 @@
 #define LED_3 68
 #define LED_4 69
 
+// pwm
+
+#define LED_PWM 12
 
 void setup() 
 {
@@ -23,6 +26,9 @@ void setup()
 void loop() 
 {
   uint8_t acceso;
+
   acceso=digitalRead(S_1)^0x01;
   digitalWrite(LED_1,acceso);
+
+  analogWrite(LED_PWM,20);
 }
