@@ -29,9 +29,9 @@ void loop()
 {
 	uint8_t acceso;
 	uint8_t scrivi;
-	uint8_t	valore_pwm=50;
+	uint8_t	valore_pwm=127;
 	float duty;
-	static unsigned long ultimo_print=0;
+	static uint32_t ultimo_print=0;
 	
 	scrivi=digitalRead(S_2);
 	acceso=digitalRead(S_1)^0x01;
@@ -45,9 +45,12 @@ void loop()
 		if (millis()>(ultimo_print+1000))
 		{
 			ultimo_print=millis();
+			Serial.print("tempo dall'avvio : ");
+			Serial.print(millis());
+			Serial.println("ms");
 			Serial.print("duty cycle = ");
 			Serial.print(duty);
-			Serial.print("%");
+			Serial.println("%");
 			Serial.println();
 		}
 	}
