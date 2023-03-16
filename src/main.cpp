@@ -20,15 +20,37 @@
 
 void setup() 
 {
-  pinMode(LED_1,OUTPUT);
+	Serial.begin(9600);
+	pinMode(LED_1,OUTPUT);
+
 }
 
 void loop() 
 {
-  uint8_t acceso;
+	uint8_t acceso;
+	uint8_t scrivi;
+	uint8_t	valore_pwm=50;
+	float duty;
+	static unsigned long ultimo_print=0;
+	
+	scrivi=digitalRead(S_2);
+	acceso=digitalRead(S_1)^0x01;
+	digitalWrite(LED_1,acceso);
 
-  acceso=digitalRead(S_1)^0x01;
-  digitalWrite(LED_1,acceso);
+	analogWrite(LED_PWM,valore_pwm);
+	duty=valore_pwm/255.0*100;
 
-  analogWrite(LED_PWM,20);
+	if (scrivi==0)
+	{
+		if (millis()>(ultimo_print+1000))
+		{
+			ultimo_print=millis();
+			Serial.print("duty cycle = ");
+			Serial.print(duty);
+			Serial.print("%");
+			Serial.println();
+		}
+	}
+
+	
 }
