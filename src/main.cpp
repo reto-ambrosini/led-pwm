@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "avr8-stub.h"
 
 // switch
 
@@ -20,6 +21,7 @@
 
 void setup() 
 {
+	debug_init();
   pinMode(LED_1,OUTPUT);
 }
 
