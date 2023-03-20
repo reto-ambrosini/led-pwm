@@ -18,6 +18,11 @@
 
 #define LED_PWM 12
 
+// potenziometri
+
+#define POT_1 60
+#define POT_2 61
+
 void setup() 
 {
   pinMode(LED_1,OUTPUT);
