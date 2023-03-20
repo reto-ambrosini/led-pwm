@@ -25,15 +25,15 @@
 
 void setup() 
 {
-  pinMode(LED_1,OUTPUT);
+	pinMode(LED_1,OUTPUT);
 }
 
 void loop() 
 {
-  uint8_t acceso;
+	uint8_t acceso;
 
-  acceso=digitalRead(S_1)^0x01;
-  digitalWrite(LED_1,acceso);
+	acceso=digitalRead(S_1)^0x01;
+	digitalWrite(LED_1,acceso);
 
-  analogWrite(LED_PWM,20);
+	analogWrite(LED_PWM,20);
 }
