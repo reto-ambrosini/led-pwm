@@ -31,9 +31,13 @@ void setup()
 void loop() 
 {
 	uint8_t acceso;
+	uint16_t valore_pot;
+	uint16_t valore_pwm;
 
 	acceso=digitalRead(S_1)^0x01;
 	digitalWrite(LED_1,acceso);
 
-	analogWrite(LED_PWM,20);
+	valore_pot=analogRead(POT_2);
+	valore_pwm=valore_pot>>2;
+	analogWrite(LED_PWM,valore_pwm);
 }
