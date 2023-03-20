@@ -24,6 +24,9 @@
 #define POT_1 60
 #define POT_2 61
 
+// variabili globali
+
+
 void setup() 
 {
 	debug_init();
@@ -39,7 +42,6 @@ void loop()
 	acceso=digitalRead(S_1)^0x01;
 	digitalWrite(LED_1,acceso);
 
-	analogWrite(LED_PWM,20);
 	valore_pot=analogRead(POT_2);
 	valore_pwm=valore_pot>>2;
 	analogWrite(LED_PWM,valore_pwm);
